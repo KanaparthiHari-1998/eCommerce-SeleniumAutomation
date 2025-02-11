@@ -35,6 +35,7 @@ class TestFirstProgramWithPytestAndSelenium(BaseFixtureClass):
         wait.until(
             EC.visibility_of_element_located((By.XPATH, "//div[contains(@class, 'alert-success')]"))
         )  # Wait for the success message to appear
+        log.info("Alert is activated")
 
         success_message = setup.find_element(
             By.XPATH, "//div[contains(@class, 'alert-success')]"

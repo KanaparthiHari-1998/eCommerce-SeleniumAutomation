@@ -15,7 +15,7 @@ class locationSection:
 
     
     def address(self):
-        self.driver.find_element(*locationSection.loc).send_keys("ind")
+        self.driver.find_element(*locationSection.loc).send_keys("india")
         self.wait.until(EC.visibility_of_element_located((By.CLASS_NAME, "suggestions")))  # Wait for the suggestions dropdown to appear
 
         # Loop through the suggestions to find and click "India"

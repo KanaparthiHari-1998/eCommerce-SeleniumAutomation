@@ -38,7 +38,7 @@ class TestHomePageEntries(BaseFixtureClass):
         # Capture and log the success message
         message = home.alertMessage().text
         log.info(f"Alert Message: {message}")
-
+ 
         # Refresh the page
         setup.refresh()
 

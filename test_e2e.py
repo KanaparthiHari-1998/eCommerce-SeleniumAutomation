@@ -8,13 +8,13 @@ from Utilities.BaseClass import BaseFixtureClass
 
 class TestFirstProgramWithPytestAndSelenium(BaseFixtureClass):
 
-    def test_e2e(self, setup):
+    def test_e2e(self):
 
         log = self.getLogging(moduleName = __name__)
         # Initialize WebDriverWait with a timeout of 10 seconds
-        wait = WebDriverWait(setup, 10)
+        wait = WebDriverWait(self.driver, 10)
         # Step 1: Navigate to the shop page
-        home = HomeScreen(setup)
+        home = HomeScreen(self.driver)
         shop = home.clickShop()
         wait.until(
             EC.visibility_of_element_located((By.CSS_SELECTOR, "h1[class*='my-4']"))
@@ -36,7 +36,7 @@ class TestFirstProgramWithPytestAndSelenium(BaseFixtureClass):
             EC.visibility_of_element_located((By.XPATH, "//div[contains(@class, 'alert-success')]"))
         )  # Wait for the success message to appear
 
-        success_message = setup.find_element(
+        success_message = self.driver.find_element(
             By.XPATH, "//div[contains(@class, 'alert-success')]"
         ).text
         log.info(success_message)

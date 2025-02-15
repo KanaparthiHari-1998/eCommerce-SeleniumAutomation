@@ -13,6 +13,7 @@ def pytest_addoption(parser):
 @pytest.fixture(scope="class")
 def setup(request):
     browser = request.config.getoption("--browser")
+    
 
     # Configure the WebDriver based on the selected browser
     if browser == "chrome":
@@ -37,10 +38,11 @@ def setup(request):
     driver.maximize_window()
 
     # Attach the WebDriver instance to the test class
-    # request.cls.driver = driver
+    request.cls.driver = driver
 
     # Yield the driver to the tests
     yield driver
+
 
     # Quit the WebDriver after the test execution
     driver.quit()

@@ -17,9 +17,9 @@ def setup(request):
 
     # Configure the WebDriver based on the selected browser
     if browser == "chrome":
-        # options = webdriver.ChromeOptions()
-        # options.add_argument("headless")
-        driver = webdriver.Chrome()
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument("headless")
+        driver = webdriver.Chrome(options=chrome_options)
     elif browser == "firefox":
         # options = webdriver.FirefoxOptions()
         # options.add_argument("headless")  # Uncomment if headless mode is required
